@@ -1,3 +1,9 @@
+# EQUIPO
+Miembros del grupo:
+- Alejandro Alonso Vicente
+- Pablo Sacie Moreno
+- Alba López Gadea
+
 # IDEAS
 
 ## Idea eventos
