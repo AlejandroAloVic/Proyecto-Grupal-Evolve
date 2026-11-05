@@ -23,10 +23,48 @@ Incluirá un formulario sencillo para introducir los parámetros del evento, la 
 ### Viabilidad y dudas
 La principal incertidumbre es la disponibilidad y calidad de datos granulares sobre eventos pequeños que no dejen registro digital masivo, así como comprobar si los modelos predictivos logran un error aceptable con variables externas como el clima. Para evaluar la viabilidad, se realizarán pruebas preliminares cruzando una muestra de eventos pasados reales con los datos meteorológicos e históricos de la AEMET y la agenda municipal. Por último, se contrastará con organizadores locales si las estimaciones y las recomendaciones de stock les resultan intuitivas y útiles para su operativa diaria.
 
-## Idea 2
+## Idea trabajo
 
-...
+### Título y descripción
+Recomendador de ofertas de empleo según el perfil profesional. Herramienta que recomienda ofertas de empleo según las competencias, la formación y la experiencia del usuario. Además de ordenar las ofertas por compatibilidad, explica qué requisitos cumple, cuáles no se han identificado en su perfil y qué competencias podría mejorar.
+
+### Problema y usuario
+Está dirigida principalmente a personas con poca experiencia profesional, como estudiantes y recién graduados, que tienen dificultades para identificar qué puestos encajan con sus capacidades e interpretar los requisitos de las ofertas. Actualmente recurren a portales de empleo, búsquedas por palabras clave y revisiones manuales, métodos que no siempre permiten valorar de forma clara la compatibilidad entre su perfil y cada puesto.
+
+### Uso y valor
+El usuario introduce su perfil mediante un formulario y, si resulta viable, podrá cargar su CV. El sistema compara esa información con las ofertas disponibles y muestra las más relevantes, explicando las competencias coincidentes y los requisitos que faltan o no aparecen en el perfil. Así podrá priorizar a qué ofertas presentarse y detectar aspectos que mejorar para aumentar sus oportunidades laborales. Como posible ampliación futura, se podrían sugerir otras ocupaciones compatibles y las competencias necesarias para acceder a ellas.
+
+### Datos
+Se necesitan ofertas reales de empleo y una clasificación de referencia de ocupaciones y competencias. Las fuentes candidatas para las ofertas de empleo son:  
+- Adzuna API: https://developer.adzuna.com/overview. Primera opción que se está evaluando, con posibilidad de filtrar por ubicación. Se ha consultado al proveedor sobre el registro como estudiante y el uso académico de los datos, incluido su almacenamiento temporal y análisis. El acceso y los permisos están pendientes de confirmación. 
+- Headcount Labs: https://headcountlabs.com/countries/spain/. Alternativa para obtener ofertas de España. Queda pendiente comprobar el acceso efectivo, las condiciones del plan disponible y los permisos de uso y almacenamiento. 
+- Feina Activa: https://feinaactiva.gencat.cat/api/offers/offers-xml. Ofrece posibles datos en formato XML, pero se centra en Cataluña. Es necesario comprobar la licencia, la estructura y la calidad de los datos. 
+- ECYL: https://jcyl.opendatasoft.com/explore/dataset/ofertas-de-empleo/api/. Alternativa de ofertas estructuradas de Castilla y León, cuya disponibilidad y condiciones de reutilización están pendientes de verificar. 
+La fuente de referencia candidata para las competencias es ESCO (https://esco.ec.europa.eu/en/use-esco/download), una clasificación europea de ocupaciones y habilidades.
+
+### Primera versión o MVP
+Incluirá un formulario para introducir el perfil, la obtención y el procesamiento de ofertas de una fuente validada, la comparación de competencias y requisitos y un listado de ofertas ordenadas por compatibilidad con una explicación de cada resultado. 
+El alcance inicial se limitará a personas con poca experiencia y a una ubicación concreta. Quedan fuera la recomendación de trayectorias profesionales alternativas, las candidaturas automáticas, la gestión de solicitudes y la integración con cuentas de portales de empleo.
+
+### Viabilidad y dudas
+La principal incertidumbre es conseguir suficientes ofertas detalladas que puedan utilizarse legalmente. También habrá que comprobar si es posible extraer requisitos de textos redactados en lenguaje natural y evaluar la utilidad de las recomendaciones. Para ello, habría que probar las fuentes con una muestra pequeña, revisando su acceso, cobertura, estructura, calidad y condiciones de uso. Por último, se contrastaría con usuarios potenciales si las recomendaciones y sus explicaciones les ayudan a elegir mejor las ofertas.
 
 ## Idea 3
 
-...
+### Título y descripción
+
+
+### Problema y usuario
+
+
+### Uso y valor
+
+
+### Datos
+
+
+### Primera versión o MVP
+
+
+### Viabilidad y dudas
+
