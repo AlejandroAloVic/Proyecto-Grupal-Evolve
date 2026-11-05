@@ -2,7 +2,7 @@
 
 Miembros del grupo:
 - Alejandro Alonso Vicente, usuario: AlejandroAloVic
-- Pablo Sacie Moreno
+- Pablo Sacie Moreno, usuario: PSacieM
 - Alba López Gadea, usuario: logal2204
 
 Estado: Exploración de ideas
