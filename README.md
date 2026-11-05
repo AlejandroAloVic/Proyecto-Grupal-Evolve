@@ -1,7 +1,7 @@
 # Proyecto Grupal Evolve
 
 Miembros del grupo:
-- Alejandro Alonso Vicente
+- Alejandro Alonso Vicente, usuario: AlejandroAloVic
 - Pablo Sacie Moreno
 - Alba López Gadea, usuario: logal2204
 
