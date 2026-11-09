@@ -9,3 +9,5 @@ Miembros del grupo:
 Estado: Exploración de ideas
 
 Enlace ideas: https://github.com/AlejandroAloVic/Proyecto-Grupal-Evolve/blob/main/docs/entregas/00_ideas.md
+
+Enlace python: https://github.com/AlejandroAloVic/Proyecto-Grupal-Evolve/blob/main/docs/entregas/01_python.md
