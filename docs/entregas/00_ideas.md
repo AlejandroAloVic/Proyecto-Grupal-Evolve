@@ -43,7 +43,7 @@ El usuario introduce su perfil mediante un formulario y, si resulta viable, podr
 
 ### Datos
 Se necesitan ofertas reales de empleo y una clasificación de referencia de ocupaciones y competencias. Las fuentes candidatas para las ofertas de empleo son:  
-- Adzuna API: https://developer.adzuna.com/overview. Primera opción que se está evaluando, con posibilidad de filtrar por ubicación. Se ha consultado al proveedor sobre el registro como estudiante y el uso académico de los datos, incluido su almacenamiento temporal y análisis. El acceso y los permisos están pendientes de confirmación. 
+- Adzuna API: https://developer.adzuna.com/overview. Primera opción que se está evaluando, con posibilidad de filtrar por ubicación. Se ha consultado al proveedor sobre el registro como estudiante y el uso académico de los datos, incluido su almacenamiento temporal y análisis. El acceso y los permisos están pendientes de confirmación. Se descarta por resultar ser de pago.
 - Headcount Labs: https://headcountlabs.com/countries/spain/. Alternativa para obtener ofertas de España. Queda pendiente comprobar el acceso efectivo, las condiciones del plan disponible y los permisos de uso y almacenamiento. 
 - Feina Activa: https://feinaactiva.gencat.cat/api/offers/offers-xml. Ofrece posibles datos en formato XML, pero se centra en Cataluña. Es necesario comprobar la licencia, la estructura y la calidad de los datos. 
 - ECYL: https://jcyl.opendatasoft.com/explore/dataset/ofertas-de-empleo/api/. Alternativa de ofertas estructuradas de Castilla y León, cuya disponibilidad y condiciones de reutilización están pendientes de verificar. 
