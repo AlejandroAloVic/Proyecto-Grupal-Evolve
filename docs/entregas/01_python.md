@@ -158,10 +158,10 @@ Las URI permiten relacionar los tres conjuntos de datos y mantener la integridad
 
 ## EDA - Feina Activa
 
-Se ha explorado el conjunto de datos de ofertas de empleo de Feina Activa cargado desde el origen hacia la capa Silver, compuesto por `4.890` registros (`0` IDs duplicados y `0` filas duplicadas exactas) y fechas registradas entre `2026-08-21` y `2026-11-19`[cite: 1].
+Se ha explorado el conjunto de datos de ofertas de empleo de Feina Activa cargado desde el origen hacia la capa Silver, compuesto por `4.890` registros (`0` IDs duplicados y `0` filas duplicadas exactas) y fechas registradas entre `2026-08-21` y `2026-11-19`.
 
-* **Cobertura y valores ausentes:** variables como `id`, `url`, `title`, `content`, `contract`, `working_hours`, `date`, `region`, `disability`, `status` y `origin` presentan `0` nulos[cite: 1]. En cambio, otros campos muestran ausencias en distinta medida: `city` (`2` nulos), `postcode` (`3` nulos), `company` (`23` nulos), `experience` (`366` nulos), `salary_max` (`1.160` nulos), `salary_min` (`1.173` nulos), `requirements` (`1.601` nulos) y `studies` (`4.090` nulos)[cite: 1].
-* **Formatos, rangos y tipos:** se revisaron rangos salariales (`0` casos con mínimo mayor que máximo)[cite: 1], cadenas de texto con saltos de línea o espacios adicionales, códigos postales con ceros a la izquierda (`postcode`), fechas (`date`) y nombres de columna en formato heterogéneo.
+* **Cobertura y valores ausentes:** variables como `id`, `url`, `title`, `content`, `contract`, `working_hours`, `date`, `region`, `disability`, `status` y `origin` presentan `0` nulos. En cambio, otros campos muestran ausencias en distinta medida: `city` (`2` nulos), `postcode` (`3` nulos), `company` (`23` nulos), `experience` (`366` nulos), `salary_max` (`1.160` nulos), `salary_min` (`1.173` nulos), `requirements` (`1.601` nulos) y `studies` (`4.090` nulos).
+* **Formatos, rangos y tipos:** se revisaron rangos salariales (`0` casos con mínimo mayor que máximo), cadenas de texto con saltos de línea o espacios adicionales, códigos postales con ceros a la izquierda (`postcode`), fechas (`date`) y nombres de columna en formato heterogéneo.
 
 ## EDA - ECYL
 
@@ -176,8 +176,8 @@ Se ha explorado el conjunto de datos de ofertas de empleo de Feina Activa cargad
 El diagnóstico distingue entre problemas técnicos de formato/estructura que conviene normalizar y ausencias reales o variabilidad propia del origen que no deben forzarse en la capa Silver:
 
 * **Columna vacía en el lote:** `category` aparecía sin información (`100 %` vacía) en la muestra analizada, por lo que no aporta datos útiles en esta fase.
-* **Nomenclatura y tipado:** los nombres de columna mezclaban estilos (*camelCase* y minúsculas) y variables como `date`, `salary_min`, `salary_max` y `postcode` requerían tipos explícitos (`datetime64[us]`, `Float64` y `string` respectivamente)[cite: 2].
-* **Textos y nulos reales:** los saltos de línea y espacios sobrantes en campos de texto (especialmente en `content`) son ruido de formato, mientras que los vacíos en `studies`, `requirements`, `salary_min`, `salary_max` o `experience` reflejan que la oferta no informó ese dato en origen[cite: 1] (no son errores de carga ni valores imposibles).
+* **Nomenclatura y tipado:** los nombres de columna mezclaban estilos (*camelCase* y minúsculas) y variables como `date`, `salary_min`, `salary_max` y `postcode` requerían tipos explícitos (`datetime64[us]`, `Float64` y `string` respectivamente).
+* **Textos, idioma y nulos reales:** los campos de texto libre (como `title`, `content` o `requirements`) pueden aparecer en catalán —o combinar catalán y castellano— por el origen de la fuente, y presentan saltos de línea o espacios sobrantes (especialmente en `content`) como ruido de formato; por su parte, los vacíos en `studies`, `requirements`, `salary_min`, `salary_max` o `experience` reflejan que la oferta no informó ese dato en origen (no son errores de carga ni valores imposibles).
 
 ## Diagnóstico - ECYL
 
@@ -192,8 +192,8 @@ El diagnóstico distingue entre problemas técnicos de formato/estructura que co
 Las transformaciones aplicadas en `notebooks/01_limpieza_faina.ipynb` responden a los problemas diagnosticados y preservan la fidelidad de los datos en Silver:
 
 * **Eliminación de columna sin información:** se retiró `category` al no contener valores útiles en este lote.
-* **Estandarización de columnas y tipos:** se unificaron los nombres en `snake_case` y se tiparon las variables (`datetime64[us]` en `date`, `Float64` en `salary_min` y `salary_max`, y `string` en textos y `postcode` para conservar ceros iniciales)[cite: 2].
-* **Limpieza de texto sin normalización destructiva:** se limpiaron saltos de línea y espacios sobrantes en textos (como `content`), manteniendo los nulos reales y sin imputar valores artificiales ni reescribir textos a lo bruto en Silver[cite: 1].
+* **Estandarización de columnas y tipos:** se unificaron los nombres en `snake_case` y se tiparon las variables (`datetime64[us]` en `date`, `Float64` en `salary_min` y `salary_max`, y `string` en textos y `postcode` para conservar ceros iniciales).
+* **Limpieza de texto sin normalización destructiva:** se limpiaron saltos de línea y espacios sobrantes en textos (como `content`), manteniendo los nulos reales y conservando el idioma original (incluido el catalán) sin traducir, imputar valores artificiales ni reescribir textos a lo bruto en Silver.
 
 ## Decisiones de limpieza - ECYL
 
@@ -205,10 +205,10 @@ Las transformaciones aplicadas en `notebooks/01_limpieza_faina.ipynb` responden 
 
 ## Resultados - Feina Activa
 
-El proceso de limpieza y validación en `notebooks/01_limpieza_faina.ipynb` generó el fichero `data/silver/feina_activa/offers_feina_activa_silver.csv` con `4.890` registros (`0` IDs duplicados, `0` filas duplicadas exactas y `0` rangos salariales invertidos) y `19` columnas estandarizadas en `snake_case`[cite: 1, 2].
+El proceso de limpieza y validación en `notebooks/01_limpieza_faina.ipynb` generó el fichero `data/silver/feina_activa/offers_feina_activa_silver.csv` con `4.890` registros (`0` IDs duplicados, `0` filas duplicadas exactas y `0` rangos salariales invertidos) y `19` columnas estandarizadas en `snake_case`.
 
-* **Comparación antes y después:** se conserva el volumen de `4.890` filas[cite: 1], se pasa de `20` columnas iniciales a `19` columnas finales al eliminar `category` (vacía al `100 %`), se normalizan textos con saltos de línea/espacios sobrantes (especialmente en `content`) y se fijan los tipos finales (`datetime64[us]` en `date`, `Float64` en `salary_min` y `salary_max`, y `string` en textos y `postcode`)[cite: 2].
-* **Problemas pendientes o reservados:** se mantienen intactos los nulos reales de origen (`studies` con `4.090`, `requirements` con `1.601`, `salary_min` con `1.173`, `salary_max` con `1.160`, `experience` con `366`, `company` con `23`, `postcode` con `3` y `city` con `2`)[cite: 1], así como la variabilidad de redacción o idioma en textos libres, para tratarlos en fases posteriores o en la capa Gold.
+* **Comparación antes y después:** se conserva el volumen de `4.890` filas, se pasa de `20` columnas iniciales a `19` columnas finales al eliminar `category` (vacía al `100 %`), se normalizan textos con saltos de línea/espacios sobrantes (especialmente en `content`) y se fijan los tipos finales (`datetime64[us]` en `date`, `Float64` en `salary_min` y `salary_max`, y `string` en textos y `postcode`).
+* **Problemas pendientes o reservados:** se mantienen intactos los nulos reales de origen (`studies` con `4.090`, `requirements` con `1.601`, `salary_min` con `1.173`, `salary_max` con `1.160`, `experience` con `366`, `company` con `23`, `postcode` con `3` y `city` con `2`), así como la variabilidad de redacción o idioma (incluido el catalán) en textos libres, para tratarlos en fases posteriores o en la capa Gold.
 
 ## Resultados - ECYL
 
@@ -220,9 +220,9 @@ El proceso de limpieza y validación en `notebooks/01_limpieza_faina.ipynb` gene
 
 ## Conclusiones - Feina Activa
 
-Los datos de Feina Activa en la capa Silver son útiles para el recomendador de ofertas según perfil profesional, ya que ofrecen vacantes reales con fechas entre `2026-08-21` y `2026-11-19`[cite: 1], descripción del puesto, condiciones laborales y ubicación.
+Los datos de Feina Activa en la capa Silver son útiles para el recomendador de ofertas según perfil profesional, ya que ofrecen vacantes reales con fechas entre `2026-08-21` y `2026-11-19`, descripción del puesto, condiciones laborales y ubicación.
 
-* **Información que falta y limitaciones:** falta vincular las ofertas con la taxonomía ESCO y con el resto de fuentes del equipo, y conviene tener en cuenta la alta ausencia de datos en campos como `studies` o salarios[cite: 1], las diferencias de formato/idioma en textos libres y el contexto de jornada o contrato al leer importes salariales.
+* **Información que falta y limitaciones:** falta vincular las ofertas con la taxonomía ESCO y con el resto de fuentes del equipo, y conviene tener en cuenta la alta ausencia de datos en campos como `studies` o salarios, las diferencias de formato y la presencia de textos en catalán (y combinaciones con castellano) en campos libres —relevantes para el encaje con el perfil y el cruce con ESCO— y el contexto de jornada o contrato al leer importes salariales.
 * **Viabilidad y ajustes:** la muestra resulta viable para continuar hacia las siguientes fases del proyecto (cruce con ESCO y trabajo posterior en SQL / capa Gold), condicionado a verificar expresamente las condiciones legales de reutilización/publicación del feed utilizado y a ajustar el alcance o las fuentes si alguna restricción o el avance de las demás fuentes así lo aconseja.
 
 ## Conclusiones - ECYL
