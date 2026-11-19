@@ -82,3 +82,61 @@ Esta publicación utiliza la clasificación ESCO de la Comisión Europea (**This
 Los datos almacenados en `data/silver/` constituyen una versión procesada y modificada de los datos originales de ESCO, mediante operaciones de limpieza y transformación realizadas en el marco de este proyecto.
 
 Los datos originales se conservan sin modificaciones en `data/raw/`.
+
+## Fuente Feina Activa
+
+**Feina Activa** es el portal de empleo del **Servei d'Ocupació de Catalunya (SOC)** / **Generalitat de Catalunya** (`feinaactiva.gencat.cat`), del que se obtienen ofertas de empleo y vacantes laborales en formato XML.
+
+### Obtención de los datos originales
+
+Para obtener los datos necesarios:
+
+1. Acceder al portal de empleo **Feina Activa** (`https://feinaactiva.gencat.cat/`) o consultar el conjunto de datos de ofertas de empleo en los portales de datos abiertos vinculados a la Generalitat de Catalunya / `datos.gob.es`, según la vía de acceso o feed XML habilitado para la extracción.
+2. Obtener o exportar el fichero XML de ofertas de empleo correspondiente a la consulta o lote de extracción.
+3. Colocar el fichero XML original en `data/raw/feina_activa/` (junto con su registro de extracción `metadata_extraccion.json` si se ha generado durante la ingesta).
+4. Verificar que los ficheros originales en `data/raw/feina_activa/` se conservan sin modificar como copia bruta de referencia.
+
+### Descripción de los conjuntos de datos
+
+#### Ofertas de empleo (`offers_feina_activa_silver.csv`)
+
+Cada registro representa una oferta de empleo publicada en el lote analizado (`4.890` registros y `19` columnas estandarizadas en la capa Silver). Variables principales:
+
+| Variable | Descripción |
+|---|---|
+| `id` | Identificador único de la oferta. |
+| `url` | Enlace a la publicación original de la oferta. |
+| `title` | Título o puesto anunciado en la oferta. |
+| `content` | Descripción detallada de las funciones y condiciones del puesto. |
+| `company` | Nombre de la empresa o entidad empleadora. |
+| `experience` | Experiencia requerida o valorada para el puesto. |
+| `requirements` | Requisitos específicos solicitados en la oferta. |
+| `studies` | Nivel de estudios o formación requerida. |
+| `contract` | Tipo de contrato ofertado. |
+| `working_hours` | Tipo de jornada laboral. |
+| `date` | Fecha de la oferta (`datetime64[us]`). |
+| `salary_min` | Salario mínimo indicado (`Float64`). |
+| `salary_max` | Salario máximo indicado (`Float64`). |
+| `city` | Municipio o localidad de la oferta. |
+| `region` | Provincia o región de la oferta. |
+| `disability` | Información relativa a discapacidad en el puesto. |
+| `postcode` | Código postal (`string`, preservando ceros a la izquierda). |
+| `status` | Estado de la oferta en el origen. |
+| `origin` | Origen dentro del XML (`FA` o `SICAS`). |
+
+### Proceso de limpieza y generación de los datos
+
+El proceso de limpieza y validación se encuentra documentado en el notebook: `notebooks/01_limpieza_faina.ipynb`. Para generar el fichero limpio:
+
+1. Colocar el fichero XML original en `data/raw/feina_activa/`.
+2. Abrir el notebook `01_limpieza_faina.ipynb`.
+3. Ejecutar las celdas en orden, desde la carga y exploración inicial hasta la validación y exportación de resultados.
+4. El fichero procesado se guardará en `data/silver/feina_activa/offers_feina_activa_silver.csv`.
+
+### Atribución y trazabilidad de los datos
+
+Este proyecto utiliza información procedente del portal de empleo **Feina Activa** (**Servei d'Ocupació de Catalunya / Generalitat de Catalunya**).
+
+El fichero almacenado en `data/silver/feina_activa/offers_feina_activa_silver.csv` constituye una versión procesada y estandarizada de los datos originales mediante operaciones de limpieza, tipado y validación realizadas en este proyecto, conservando los nulos reales y sin alteraciones destructivas en Silver.
+
+Los datos originales se conservan sin modificaciones en `data/raw/feina_activa/`.S

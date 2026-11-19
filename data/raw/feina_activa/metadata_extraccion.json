@@ -1,0 +1,9 @@
+{
+  "fuente": "Feina Activa (Generalitat de Catalunya)",
+  "url": "https://feinaactiva.gencat.cat/api/offers/offers-xml",
+  "fecha_extraccion_utc": "2026-11-19T11:50:24.936258+00:00",
+  "status_code": 200,
+  "content_type": "application/xml;charset=UTF-8",
+  "tamano_bytes": 7506998,
+  "archivo_guardado": "..\\data\\raw\\feina_activa\\offers_feina_activa_raw.xml"
+}
