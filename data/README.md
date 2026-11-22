@@ -140,3 +140,19 @@ Este proyecto utiliza información procedente del portal de empleo **Feina Activ
 El fichero almacenado en `data/silver/feina_activa/offers_feina_activa_silver.csv` constituye una versión procesada y estandarizada de los datos originales mediante operaciones de limpieza, tipado y validación realizadas en este proyecto, conservando los nulos reales y sin alteraciones destructivas en Silver.
 
 Los datos originales se conservan sin modificaciones en `data/raw/feina_activa/`.S
+
+### Fuente ECYL
+
+**ECYL (Portal de Empleo de Castilla y León)** Es el servicio público de empleo de Castilla y León. Un organismo autónomo encargado de las actividades de fomento del empleo, la formación para el empleo y la orientación e intermediación en el mercado de trabajo de la comunidad de Castilla y León, adscrito a la Consejería competente en materia laboral, en la actualidad la Consejería de Industria, Comercio y Empleo.
+
+### Obtención de los datos originales
+
+Para obtener los datos necesarios:
+1. Acceder al portal de análisis de datos abiertos de Castilla y León (https://datosabiertos.jcyl.es/web/es/analisis-datos-abiertos.html). Acceder al buscador de datos para poder buscar el dataset de empleo. Buscar el dataset de ofertas de empleo. Pinchar en el enlace de la descripción.
+Este caso tiene varias opciones para obtener los datos:
+*Caso 1: Exportar los datos*
+2. Pulsar en el botón de exportar los datos.
+3. Descargar los datos en el formato que queramos usar: CSV, Excel o JSON.
+4. Guaradrlos en "data/raw/ECYL/".
+*Caso 2: Mediante API*
+
