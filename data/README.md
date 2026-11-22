@@ -148,11 +148,22 @@ Los datos originales se conservan sin modificaciones en `data/raw/feina_activa/`
 ### Obtención de los datos originales
 
 Para obtener los datos necesarios:
-1. Acceder al portal de análisis de datos abiertos de Castilla y León (https://datosabiertos.jcyl.es/web/es/analisis-datos-abiertos.html). Acceder al buscador de datos para poder buscar el dataset de empleo. Buscar el dataset de ofertas de empleo. Pinchar en el enlace de la descripción.
+1. Acceder al portal de análisis de datos abiertos de Castilla y León (`https://datosabiertos.jcyl.es/web/es/analisis-datos-abiertos.html`). Acceder al buscador de datos para poder buscar el dataset de empleo. Buscar el dataset de ofertas de empleo. Pinchar en el enlace de la descripción.
 Este caso tiene varias opciones para obtener los datos:
+
 *Caso 1: Exportar los datos*
 2. Pulsar en el botón de exportar los datos.
 3. Descargar los datos en el formato que queramos usar: CSV, Excel o JSON.
-4. Guaradrlos en "data/raw/ECYL/".
+4. Guaradrlos en `data/raw/ECYL/`.
+
 *Caso 2: Mediante API*
 
+### Descripción de los conjuntos de datos
+
+### Proceso de limpieza y generación de los datos
+
+### Atribución y trazabilidad de los datos
+
+Este proyecto utiliza información procedente del portal de empleo **ECYL** (**Portal de empleo de Castilla y León**).
+
+Los datos originales se conservan sin modificaciones en `data/raw/ECYL/`.
