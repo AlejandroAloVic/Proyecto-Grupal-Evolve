@@ -152,13 +152,37 @@ Para obtener los datos necesarios:
 Este caso tiene varias opciones para obtener los datos:
 
 *Caso 1: Exportar los datos*
-2. Pulsar en el botón de exportar los datos.
-3. Descargar los datos en el formato que queramos usar: CSV, Excel o JSON.
-4. Guaradrlos en `data/raw/ECYL/`.
+
+1. Pulsar en el botón de exportar los datos.
+2. Descargar los datos en el formato que queramos usar: CSV, Excel o JSON.
+3. Guaradrlos en `data/raw/ECYL/`.
 
 *Caso 2: Mediante API*
 
+1. Pulsar en usar la consola de API.
+2. Buscar el código para Python que esta en la parte de abajo.
+3. Utilizar el código para acceder a la API.
+
 ### Descripción de los conjuntos de datos
+
+Cada registro representa una oferta de empleo publicada en el lote analizado (`921` registros y `14` columnas). Variables principales:
+
+| Variable | Descripción |
+|---|---|
+|Título|Nombre de la oferta de empleo|
+|Provincia|Nombre de la provincia donde se va a realizar el empleo|
+|Fecha publicación|Fecha en la que se publicó la oferta|
+|Descripción|Texto explicativo sobre el empleo anunciado|
+|Provincia alternativa|Nombre de otra provincia donde se podrá realizar el empleo|
+|Fuente Contenido|Lugar donde está publicada la oferta de empleo|
+|ID Localidad|Código de identificación del municipio donde se realiza el trabajo|
+|Localidad|Nombre del municipio donde se realiza el trabajo|
+|Código provincia|Número asignado a cada provincia|
+|Documentos asociados|Archivos asociados a la oferta de trabajo|
+|Identificador|Código que identifica la oferta de empleo|
+|Actualización de metadatos|Fecha en la que se actualizó la oferta de empleo|
+|Enlace al contenido|Dirección url de la oferta|
+|Punto geográfico|Coordenadas geográficas del trabajo|
 
 ### Proceso de limpieza y generación de los datos
 
