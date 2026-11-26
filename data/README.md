@@ -165,7 +165,7 @@ Este caso tiene varias opciones para obtener los datos:
 
 ### Descripción de los conjuntos de datos
 
-Cada registro representa una oferta de empleo publicada en el lote analizado (`921` registros y `14` columnas). Variables principales:
+Cada registro representa una oferta de empleo publicada en el lote analizado (`1027` registros y `16` columnas). Variables principales:
 
 | Variable | Descripción |
 |---|---|
